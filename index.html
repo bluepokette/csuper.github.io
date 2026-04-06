@@ -90,18 +90,37 @@
       line-height: 1.4;
     }
 
-    .ui-subheadline a,
-    .ui-shop-link {
+    .ui-subheadline a {
       color: inherit;
       text-decoration: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       transition: opacity 0.2s ease, border-color 0.2s ease;
     }
 
-    .ui-subheadline a:hover,
-    .ui-shop-link:hover {
+    .ui-subheadline a:hover {
       opacity: 0.7;
       border-bottom: 1px solid rgba(255, 255, 255, 1);
+    }
+
+    .ui-shop-link {
+      position: fixed;
+      bottom: var(--spacing-base);
+      right: var(--spacing-base);
+      color: inherit;
+      text-decoration: none;
+      mix-blend-mode: difference;
+      color: var(--white);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 400;
+      pointer-events: auto;
+      z-index: calc(var(--z-fixed) + 1);
+      transition: opacity 0.2s ease;
+    }
+
+    .ui-shop-link:hover {
+      opacity: 0.7;
     }
 
     /* 
@@ -254,9 +273,6 @@
         flex-direction: row;
         justify-content: space-between;
         gap: 1rem;
-        <div class="ui-shop">
-  <a href="https://www.csuper.co" target="_blank">Shop CSUPER</a>
-</div>
       }
 
       .ui-subheadline {
@@ -280,27 +296,6 @@
         flex-wrap: wrap;
       }
     }
-      .ui-bottom {
-  position: relative;
-}
-
-.ui-shop {
-  position: absolute;
-  right: var(--spacing-base);
-  bottom: var(--spacing-base);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.ui-shop a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.ui-shop a:hover {
-  opacity: 0.7;
-}
   </style>
 </head>
 <body>
@@ -318,13 +313,16 @@
     <div class="ui-bottom">
       <footer class="ui-item ui-subheadline">
         csuper® is a collaborative creative practice between
-        <br> Caroline Leroux (New York) and Jiani Lu (Toronto), working with artists, designers, and clients across cultural and commissioned projects.
-        <br>E: <a href="mailto:allo@csuper.co" aria-label="Email us">allo@csuper.co</a>
+        <br> Caroline Leroux (New York) and Jiani Lu (Toronto),
+        <br>working with artists, designers, and clients across cultural and commissioned projects.
+        <br>E: <a href="/cdn-cgi/l/email-protection#e58489898aa5869690958097cb868a" aria-label="Email us"><span class="__cf_email__" data-cfemail="452429292a052636303520376b262a">[email&#160;protected]</span></a>
         <br>T: <a href="tel:+19179451180" aria-label="Call us">+1 (917) 945-1180</a>.
       </footer>
-      <a class="ui-item ui-shop-link" href="https://www.csuper.co" target="_blank" rel="noopener noreferrer">Shop CSUPER</a>
     </div>
   </div>
+
+  <!-- SHOP LINK: fixed bottom-right, equal margins -->
+  <a class="ui-shop-link" href="https://www.csuper.co" target="_blank" rel="noopener noreferrer">Shop CSUPER</a>
 
   <!-- MAIN SCROLLING CONTENT -->
   <main id="work">
@@ -451,12 +449,3 @@
         </div>
         <div class="project-meta">
           <span class="project-title">11 — Shards Paper Media Collage</span>
-          <span class="project-index">Artist's Proof</span>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
-</body>
-</html>
